@@ -4,12 +4,16 @@
 class Light {
 private:
     byte pin;
+    char state;
+    unsigned long previousTime = 0;
+
 public:
-    Light(byte pinNumber, byte defaultState = LOW);
-    bool getStatus();
-    void on();
-    void off();
-    void flicker();
+    Light(byte, byte = LOW);
+    bool getState();
+    void on(bool = true);
+    void off(bool = true);
+    void flickerOn();
+    void flickerOff();
 };
 
 #endif

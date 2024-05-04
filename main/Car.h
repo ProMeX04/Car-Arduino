@@ -11,6 +11,7 @@ private:
     UltraSonic sonar;
     Light light;
 
+    byte speed;
     bool autoAvoid = false;
     bool safe = true;
     int safeDistance;
@@ -22,6 +23,10 @@ public:
     void right();
     void front();
     void back();
+    void frontRight();
+    void frontLeft();
+    void backRight();
+    void backLeft();
     void stop();
     char getDirect();
     void lightOn();
@@ -30,7 +35,8 @@ public:
     void avoidObstaclesOn();
     void avoidObstaclesOff();
     void setSpeed(byte strength);
-    void warning();
+    void warningOn();
+    void warningOff();
 };
 
 #endif

@@ -31,6 +31,30 @@ void Car::back() {
     rightMotor.reverse();
 }
 
+void Car::frontLeft(){
+    direct = 'Q';
+    leftMotor.halt();
+    rightMotor.forward();
+}   
+
+void Car::frontRight(){
+    direct = 'E';
+    leftMotor.forward();
+    rightMotor.halt();
+} 
+
+void Car::backLeft(){
+    direct = 'Z';
+    leftMotor.halt();
+    rightMotor.reverse();
+} 
+
+void Car::backRight(){
+    direct = 'C';
+    leftMotor.reverse();
+    rightMotor.halt();
+} 
+
 void Car::stop() {
     leftMotor.halt();
     rightMotor.halt();
@@ -55,11 +79,15 @@ bool Car::isSafe() {
 void Car::avoidObstaclesOn() {autoAvoid = true;}
 void Car::avoidObstaclesOff() {autoAvoid = false;}
 
-void Car::setSpeed(byte strength) {
-    leftMotor.setPower(strength);
-    rightMotor.setPower(strength);
+void Car::setSpeed(byte speed) {
+    leftMotor.setPower(speed);
+    rightMotor.setPower(speed);
 }
 
-void Car::warning(){
-    light.flicker();
+void Car::warningOn(){
+    light.flickerOn();
+}
+
+void Car::warningOff(){
+    light.flickerOff();
 }

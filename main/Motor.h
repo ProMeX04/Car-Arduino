@@ -3,17 +3,18 @@
 
 class Motor {
 private:
-    byte pin1, pin2, pinE, power;
+    byte pin1, pin2, pinE;
 
 public:
-    Motor(byte pin1, byte pin2, byte pinE, byte power);
-    void control(byte a, byte b);
+    Motor(byte pin1, byte pin2, byte pinE);
+    void control(byte, byte);
     void forward();
-    void forward(byte power);
+    void forward(byte);
     void reverse();
-    void reverse(byte power);
+    void reverse(byte);
     void halt();
-    void setPower(byte power);
+    void setPower(byte);
+    byte getPower();
 };
 
 #endif

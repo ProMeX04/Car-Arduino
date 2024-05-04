@@ -2,7 +2,7 @@
 #include "Bluetooth.h"
 
 Bluetooth bluetooth(8, 9);
-Car car(Motor(2, 4, 3, 0), Motor(7, 5, 6, 0), UltraSonic(10, 11, 500), Light(12));
+Car car(Motor(7, 5, 6),Motor(2, 4, 3), UltraSonic(10, 11, 500), Light(12));
 
 
 void setup() {
@@ -15,19 +15,21 @@ void setup() {
 void loop() {
     if (bluetooth.available()) {
         char bIn = bluetooth.read();
+        Serial.print(bIn);
         switch (bIn) {
-        case 'Q':
-        case 'L':
-        case 'Z': car.left(); break;
-        case 'E':
-        case 'R':
-        case 'C': car.right(); break;
+        case 'Q': car.frontLeft(); break;
+        case 'L': car.left(); break;
+        case 'Z': car.backLeft(); break;
+        case 'E': car.frontRight(); break;
+        case 'R': car.right(); break;
+        case 'C': car.backRight(); break;
+        case 'G': car.back(); break;
         case 'F':
             if (car.isSafe()) car.front(); 
             else car.stop();
             break;
         
-        case 'G': car.back(); break;
+        
         case 'S': car.stop(); break;
         case 'J': car.setSpeed(bluetooth.readNumber()); break;
         case 'K': car.setSafeDistance(bluetooth.readNumber()); break;
@@ -44,7 +46,10 @@ void loop() {
         lastPingTime = currentMillis;
         if (!car.isSafe()) {
             car.stop();
-            car.warning();
+            car.warningOn();
+        }
+        else {
+            car.warningOff();
         }
     }   
 }
