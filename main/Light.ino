@@ -17,7 +17,7 @@ void Light::off(bool changeState = true) {
 }
 void Light::flickerOn() {
     long currentTime = millis();
-    if (currentTime - previousTime > 0){
+    if (currentTime - previousTime > 50){
         if (getState() == HIGH) off(false);
         else on(false);
     }
