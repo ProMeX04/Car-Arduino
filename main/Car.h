@@ -10,15 +10,15 @@ private:
     Motor leftMotor, rightMotor;
     UltraSonic sonar;
     Light light;
-
     byte speed;
     bool autoAvoid = false;
     bool safe = true;
     int safeDistance;
     char direct;
 public:
-    Car(Motor leftMotor, Motor rightMotor, UltraSonic sonar, Light light);
-    void setSafeDistance(byte safeDistance);
+    Car(Motor, Motor, UltraSonic, Light);
+    void setup();
+    void setSafeDistance(byte);
     void left();
     void right();
     void front();
@@ -34,7 +34,7 @@ public:
     bool isSafe();
     void avoidObstaclesOn();
     void avoidObstaclesOff();
-    void setSpeed(byte strength);
+    void setSpeed(byte);
     void warningOn();
     void warningOff();
 };

@@ -1,9 +1,6 @@
 #include "Light.h"
 
-Light::Light(byte pinNumber, byte defaultState = LOW) : pin(pinNumber) {
-    pinMode(pin, OUTPUT);
-    digitalWrite(pin, defaultState);
-}
+Light::Light(byte pinNumber) : pin(pinNumber), previousTime(0){pinMode(pin, OUTPUT);}
 
 bool Light::getState() {return digitalRead(pin) == HIGH;}
 void Light::on(bool changeState = true) {

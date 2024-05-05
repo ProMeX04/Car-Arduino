@@ -5,7 +5,7 @@
 
 class UltraSonic : public NewPing {
 public:
-    UltraSonic(byte trig, byte echo, unsigned int maxDis);
+    UltraSonic(byte, byte, unsigned int);
 };
 
 #endif

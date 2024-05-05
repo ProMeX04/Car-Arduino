@@ -4,11 +4,11 @@
 class Light {
 private:
     byte pin;
-    char state;
-    unsigned long previousTime = 0;
+    bool state;
+    unsigned long previousTime;
 
 public:
-    Light(byte, byte = LOW);
+    Light(byte);
     bool getState();
     void on(bool = true);
     void off(bool = true);

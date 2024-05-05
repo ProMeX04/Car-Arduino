@@ -5,7 +5,7 @@
 
 class Bluetooth : public SoftwareSerial {
 public:
-    Bluetooth(byte rx, byte tx);
+    Bluetooth(byte, byte);
     unsigned int readNumber();
 };
 

@@ -3,6 +3,11 @@
 Car::Car(Motor leftMotor, Motor rightMotor, UltraSonic sonar, Light light)
     : leftMotor(leftMotor), rightMotor(rightMotor), sonar(sonar), light(light) {}
 
+void Car::setup(){
+    setSpeed(255);
+    setSafeDistance(20);
+    lightOff();
+}
 void Car::setSafeDistance(byte safeDistance) {this->safeDistance = safeDistance;}
 
 void Car::left() {

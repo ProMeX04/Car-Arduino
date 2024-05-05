@@ -1,11 +1,11 @@
 #include "Motor.h"
 
 Motor::Motor(byte pin1, byte pin2, byte pinE)
-    : pin1(pin1), pin2(pin2), pinE(pinE){
-        pinMode(pin1, OUTPUT);
-        pinMode(pin2, OUTPUT);
-        pinMode(pinE, OUTPUT);
-    }
+    : pin1(pin1), pin2(pin2), pinE(pinE) {
+    pinMode(pin1, OUTPUT);
+    pinMode(pin2, OUTPUT);
+    pinMode(pinE, OUTPUT);
+}
 
 void Motor::control(byte x, byte y) {
     digitalWrite(pin1, x);
@@ -30,4 +30,4 @@ void Motor::setPower(byte power) {
     analogWrite(pinE, power);
 }
 
-byte Motor::getPower(){return analogRead(pinE);}
+byte Motor::getPower() {return analogRead(pinE);}
